@@ -5,12 +5,13 @@
   "name": "AdvancedChatLog",
   "description": "An easy way to view and filter through many chat messages.",
   "authors": [
-    "DarkKronicle"
+    "DarkKronicle",
+    "EnricoMessall"
   ],
   "contact": {
-    "sources": "https://github.com/DarkKronicle/AdvancedChatLog",
-    "issues": "https://github.com/DarkKronicle/AdvancedChatLog/issues",
-    "discord": "https://discord.gg/WnaE3uZxDA"
+    "homepage": "https://arematics.com",
+    "sources": "https://github.com/Arematics/AdvancedChatCore",
+    "issues": "https://github.com/Arematics/AdvancedChatCore/issues"
   },
   "license": "MPL-v2",
   "icon": "assets/advancedchatlog/icon.png",
@@ -24,18 +25,15 @@
     "advancedchatlog.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.18",
+    "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "minecraft": ">=1.20.0",
-    "malilib": ">=0.16.0",
-    "advancedchatcore": ">=1.5.10-1.19"
+    "minecraft": ">=1.21",
+    "malilib": ">=0.20.0",
+    "advancedchatcore": ">=1.5.11-1.21"
   },
   "custom": {
     "acmodule": true,
     "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/WnaE3uZxDA"
-      },
       "parent": {
         "id": "advancedchatcore"
       }
