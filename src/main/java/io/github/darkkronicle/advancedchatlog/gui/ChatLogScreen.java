@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 DarkKronicle
+ * Copyright (C) 2021-2024 DarkKronicle
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -122,7 +122,7 @@ public class ChatLogScreen extends GuiBase {
                 textRenderer,
                 (textFieldRunnable -> {
                     if (client.player != null) {
-                        client.player.sendMessage(Text.of(textFieldRunnable.getText()));
+                        client.player.sendMessage(Text.of(textFieldRunnable.getText()), false);
                     }
                     textFieldRunnable.setText("");
                 })
