@@ -72,13 +72,14 @@ public class LogChatMessageSerializer implements IJsonSave<LogChatMessage> {
 
     @Override
     public JsonObject save(LogChatMessage message) {
+        RegistryWrapper.WrapperLookup wrapperLookup = BuiltinRegistries.createWrapperLookup();
         JsonObject json = new JsonObject();
         ChatMessage chat = message.getMessage();
         LocalDateTime dateTime = LocalDateTime.of(message.getDate(), chat.getTime());
         json.addProperty("time", formatter.format(dateTime));
         json.addProperty("stacks", chat.getStacks());
-        json.add("display", GSON.toJsonTree(chat.getDisplayText()));
-        json.add("original", GSON.toJsonTree(chat.getOriginalText()));
+        json.addProperty("display", Text.Serialization.toJsonString(chat.getDisplayText(), wrapperLookup));
+        json.addProperty("original", Text.Serialization.toJsonString(chat.getOriginalText(), wrapperLookup));
         return json;
     }
 }
