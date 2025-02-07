@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 DarkKronicle
+ * Copyright (C) 2021-2025 DarkKronicle
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import com.mojang.logging.LogUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.config.options.*;
@@ -28,6 +29,7 @@ import java.io.OutputStreamWriter;
 import java.util.List;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.util.Util;
 
 @Environment(EnvType.CLIENT)
 public class ChatLogConfigStorage implements IConfigHandler {
@@ -205,11 +207,17 @@ public class ChatLogConfigStorage implements IConfigHandler {
 
     @Override
     public void load() {
+        LogUtils.getLogger().info("[AdvancedChatLog] Loading...");
+        long time = Util.getMeasuringTimeMs();
         loadFromFile();
+        LogUtils.getLogger().info("[AdvancedChatLog] Load completed in {}ms", Util.getMeasuringTimeMs() - time);
     }
 
     @Override
     public void save() {
+        LogUtils.getLogger().info("[AdvancedChatLog] Saving...");
+        long time = Util.getMeasuringTimeMs();
         saveFromFile();
+        LogUtils.getLogger().info("[AdvancedChatLog] Save completed in {}ms", Util.getMeasuringTimeMs() - time);
     }
 }
